@@ -1,0 +1,113 @@
+/*
+ * "Hello World" example.
+ *
+ * This example prints 'Hello from Nios II' to the STDOUT stream. It runs on
+ * the Nios II 'standard', 'full_featured', 'fast', and 'low_cost' example
+ * designs. It runs with or without the MicroC/OS-II RTOS and requires a STDOUT
+ * device in your system's hardware.
+ * The memory footprint of this hosted application is ~69 kbytes by default
+ * using the standard reference design.
+ *
+ * For a reduced footprint version of this template, and an explanation of how
+ * to reduce the memory footprint for a given application, see the
+ * "small_hello_world" template.
+ *
+ */
+
+
+#include <stdio.h>
+
+void suma(){
+	int i,canti;
+	float num[canti],res=0;
+
+	printf("---------------SUMA---------------\n");
+	printf("Ingrese la cantidad de numeros: ");
+  	scanf("%d",&canti);
+	printf("Ingresa los numeros a sumar: \n");
+	for(i=0; i<canti;i++){
+		scanf("%f",&num[i]);
+		res+=num[i];
+	}
+	printf("El resultado es: %f",res);
+}
+
+void resta(){
+	int i,canti;
+	float num[canti];
+
+	printf("---------------RESTA---------------\n");
+	printf("Ingrese la cantidad de numeros: ");
+  	scanf("%d",&canti);
+	printf("Ingresa los numeros a restar: \n");
+	for(i=0; i<canti;i++){
+		scanf("%f",&num[i]);
+	}
+	float res=num[0];
+    for (i=1;i<canti;i++) {
+        res -= num[i];
+    }
+	printf("El resultado es: %f",res);
+}
+
+void multi(){
+	int i,canti;
+	float num[canti],res=1;
+
+	printf("---------------MULTIPLICACION---------------\n");
+	printf("Ingrese la cantidad de numeros: ");
+  	scanf("%d",&canti);
+	printf("Ingresa los numeros a multiplicar: \n");
+	for(i=0; i<canti;i++){
+		scanf("%f",&num[i]);
+		res *= num[i];
+	}
+	printf("El resultado es: %f",res);
+}
+
+void divi(){
+	int i,canti;
+	float num[canti];
+
+	printf("---------------DIVISION---------------\n");
+	printf("Ingrese la cantidad de numeros: ");
+  	scanf("%d",&canti);
+	printf("Ingresa los numeros a dividir: \n");
+	for(i=0; i<canti;i++){
+		scanf("%f",&num[i]);
+	}
+	float res=num[0];
+    for (i=1;i<canti;i++) {
+        res /= num[i];
+    }
+	printf("El resultado es: %f",res);
+}
+
+void main(){
+	int opc,canti;
+	printf("-----Bienvenido a la calculadora de numeros flotantes-----\n");
+	do{
+	printf ("\nIntroduce una opcion de las siguientes:\n");
+  	printf ("1.- Sumar\n");
+  	printf ("2.- Restar\n");
+  	printf ("3.- Multiplicar\n");
+  	printf ("4.- Dividir\n");
+  	printf ("0.- Salir\n");
+  	printf ("Opcion: ");
+  	scanf  ("%d",&opc);
+  	switch(opc){
+  		case 1: suma();
+  				break;
+  		case 2: resta();
+  				break;
+  		case 3: multi();
+  				break;
+  		case 4: divi();
+  				break;
+  		case 0: printf("-----GRACIAS POR USAR :D-----");
+		  		break;
+  		default:
+        printf("\nIntroduce una opcion valida...");
+	  }
+	}while(opc != 0);
+}

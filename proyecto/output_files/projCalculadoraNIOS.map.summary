@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Nov 17 08:10:57 2023
+Quartus II 64-Bit Version : 12.1 Build 177 11/07/2012 SJ Web Edition
+Revision Name : projCalculadoraNIOS
+Top-level Entity Name : projCalculadoraNIOS
+Family : Cyclone IV E
+Total logic elements : 3,613
+    Total combinational functions : 3,197
+    Dedicated logic registers : 1,780
+Total registers : 1780
+Total pins : 1
+Total virtual pins : 0
+Total memory bits : 3,211,408
+Embedded Multiplier 9-bit elements : 7
+Total PLLs : 0

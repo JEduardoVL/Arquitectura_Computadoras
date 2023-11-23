@@ -1,0 +1,131 @@
+/*
+ * "Hello World" example.
+ *
+ * This example prints 'Hello from Nios II' to the STDOUT stream. It runs on
+ * the Nios II 'standard', 'full_featured', 'fast', and 'low_cost' example
+ * designs. It runs with or without the MicroC/OS-II RTOS and requires a STDOUT
+ * device in your system's hardware.
+ * The memory footprint of this hosted application is ~69 kbytes by default
+ * using the standard reference design.
+ *
+ * For a reduced footprint version of this template, and an explanation of how
+ * to reduce the memory footprint for a given application, see the
+ * "small_hello_world" template.
+ *
+ */
+
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#define MAX_INPUT_SIZE 100
+
+void suma() {
+    char input[MAX_INPUT_SIZE];
+    float res = 0;
+    char *token;
+
+    printf("\n \t SUMA ");
+    printf("\n Ingresa la operacion a sumar (ejemplo: 2+3+4.5): \n");
+    fgets(input, MAX_INPUT_SIZE, stdin);  // Lee la línea completa
+
+    token = strtok(input, "+");
+    while (token != NULL) {
+        res += atof(token);
+        token = strtok(NULL, "+");
+    }
+
+    printf("El resultado es: %f\n", res);
+}
+
+void resta() {
+    char input[MAX_INPUT_SIZE];
+    float res;
+    char *token;
+
+    printf("\n \t RESTA ");
+    printf("\n Ingresa la operacion a restar (ejemplo: 10-3-2): \n");
+    fgets(input, MAX_INPUT_SIZE, stdin);
+
+    token = strtok(input, "-");
+    if (token != NULL) {
+        res = atof(token);
+        token = strtok(NULL, "-");
+    }
+
+    while (token != NULL) {
+        res -= atof(token);
+        token = strtok(NULL, "-");
+    }
+
+    printf("El resultado es: %f\n", res);
+}
+
+void multi() {
+    char input[MAX_INPUT_SIZE];
+    float res = 1;
+    char *token;
+
+    printf("\n \t MULTIPLICACION ");
+    printf("\n Ingresa la operacion a multiplicar (ejemplo: 2*3*2): \n");
+    fgets(input, MAX_INPUT_SIZE, stdin);
+
+    token = strtok(input, "*");
+    while (token != NULL) {
+        res *= atof(token);
+        token = strtok(NULL, "*");
+    }
+
+    printf("El resultado es: %f\n", res);
+}
+
+void divi() {
+    char input[MAX_INPUT_SIZE];
+    float res;
+    char *token;
+
+    printf("\n \t DIVISION");
+    printf("\n Ingresa la operacion a dividir (ejemplo: 12/2/3): \n");
+    fgets(input, MAX_INPUT_SIZE, stdin);
+
+    token = strtok(input, "/");
+    if (token != NULL) {
+        res = atof(token);
+        token = strtok(NULL, "/");
+    }
+
+    while (token != NULL) {
+        res /= atof(token);
+        token = strtok(NULL, "/");
+    }
+
+    printf("El resultado es: %f\n", res);
+}
+
+int main(){
+    int opc;
+
+    do {
+        printf("\t Menu \n");
+        printf("[1] Sumar\n");
+        printf("[2] Restar\n");
+        printf("[3] Multiplicar\n");
+        printf("[4] Dividir\n");
+        printf("[0] Salir\n");
+        printf("Opcion: ");
+        scanf("%d", &opc);
+        getchar();  // Consume el '\n' después de leer un número
+
+        switch(opc){
+            case 1: suma(); break;
+            case 2: resta(); break;
+            case 3: multi(); break;
+            case 4: divi(); break;
+            case 0: printf("\n \t Fin de programa. \n"); break;
+            default: printf("\nIntroduce una opción válida...\n");
+        }
+    } while(opc != 0);
+
+    return 0;
+}

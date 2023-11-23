@@ -1,0 +1,6 @@
+	component projCalculadoraNIOS is
+		port (
+			clk_clk : in std_logic := 'X'  -- clk
+		);
+	end component projCalculadoraNIOS;
+
